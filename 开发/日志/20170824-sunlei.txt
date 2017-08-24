@@ -1,0 +1,21 @@
+完成框架集成:
+
+后端框架:
+spring  	3.0.5 RELEASE
+struts2		2.3.28
+myBatis		3.2.6
+
+项目管理
+maven		3.5.0
+
+模板引擎
+freemarker    	2.3.26-incubating
+
+前端框架
+bootstrap	3.3.7-dist
+
+UI框架
+AmazeUI		2.7.2
+
+JS框架
+jQuery		3.2.1
