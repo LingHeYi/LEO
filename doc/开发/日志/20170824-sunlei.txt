@@ -19,3 +19,9 @@ AmazeUI		2.7.2
 
 JS框架
 jQuery		3.2.1
+
+日志
+log4j		1.2.17
+
+数据库		
+mySql		5.7.19

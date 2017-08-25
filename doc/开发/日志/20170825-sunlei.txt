@@ -1,0 +1,3 @@
+实现STRUTS2动态方法调用，spring配置mapper扫描，
+实现freemarker模板解析
+实现从前端到数据跑通
