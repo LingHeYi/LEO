@@ -16,20 +16,27 @@
 
     <constant name="struts.ui.theme" value="xhtml" />
 
+    <package name="root" extends="struts-default">
+        <interceptors>
+            <interceptor name="loginSession" class="com.filter.LoginSessionFilter"></interceptor>
+        </interceptors>
+        <global-results>
+            <result name="login">/WEB-INF/page/amazeUI/login.html</result>
+        </global-results>
+    </package>
+
     <package name="default" namespace="/" extends="struts-default">
-
-        <default-action-ref name="index" />
-
+        <default-action-ref name="login" />
         <global-results>
             <result name="error">/error.jsp</result>
         </global-results>
-
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error"/>
         </global-exception-mappings>
 
-        <action name="freemarker" class="com.struts2freemarker.test.action.FreemarkerAction">
-            <result name="success" type="freemarker">/WEB-INF/page/index.ftl</result>
+        <action name="login" class="com.leo.action.LoginAction">
+            <!--<action name="loign" class="com.struts2freemarker.test.action.FreemarkerAction">-->
+            <result name="success" type="freemarker">/WEB-INF/page/amazeUI/landing.html</result>
         </action>
     </package>
 

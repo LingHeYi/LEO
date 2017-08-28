@@ -51,9 +51,9 @@ public class RedisUtil {
              */
 
             JedisPoolConfig config = new JedisPoolConfig();
-            config.setMaxActive(MAX_ACTIVE);
+            config.setMaxTotal(MAX_ACTIVE);
             config.setMaxIdle(MAX_IDLE);
-            config.setMaxWait(MAX_WAIT);
+            config.setMaxWaitMillis(MAX_WAIT);
             config.setTestOnBorrow(TEST_ON_BORROW);
             jedisPool = new JedisPool(config, addr, PORT, TIMEOUT, PASSWD);
         }catch (Exception e){
