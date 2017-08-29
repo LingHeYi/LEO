@@ -46,12 +46,12 @@
     <br>
     <br>
 
-    <form method="post" class="am-form">
-      <label for="email">帐号:</label>
-      <input type="email" name="" id="email" value="" placeholder="用户名或者邮箱">
+    <form method="post" class="am-form" action="${ctx}admin/login_logining">
+      <label for="loginName">帐号:</label>
+      <input type="text" name="loginName" id="loginName" value="" placeholder="用户名或者邮箱">
       <br>
       <label for="password">密码:</label>
-      <input type="password" name="" id="password" value="">
+      <input type="password" name="password" id="password" value="">
       <br>
       <label for="remember-me">
         <input id="remember-me" type="checkbox">

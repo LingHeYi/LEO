@@ -8,6 +8,11 @@
             <result name="list" type="freemarker">/WEB-INF/page/tempUser/tempUserList.jsp</result>
             <result name="input">/error.jsp</result>
         </action>
+        <action name="login_*" class="com.leo.action.LoginAction" method="{1}">
+            <result name="error">/error.jsp</result>
+            <result name="goLogin" type="freemarker">/WEB-INF/page/amazeUI/login.html</result>
+            <result name="index" type="freemarker">/WEB-INF/page/amazeUI/landing.html</result>
+        </action>
 
     </package>
 

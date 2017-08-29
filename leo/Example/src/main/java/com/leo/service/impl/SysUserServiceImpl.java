@@ -25,6 +25,14 @@ public class SysUserServiceImpl implements ISysUserService {
     @Autowired
     private SysUserDaoImpl sysUserDao;
 
+    public SysUser logining(String username, String passwd) {
+        SysUser sysUser = new SysUser();
+        sysUser.setLoginName(username);
+        sysUser.setEmail(username);
+        sysUser.setPassword(passwd);
+        return sysUserDao.querySysUserBase(sysUser);
+    }
+
     public SysUser queryUserByLoginNameAndPasswd(String loginName, String password) {
         SysUser sysUser = new SysUser();
         sysUser.setLoginName(loginName);

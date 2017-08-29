@@ -10,6 +10,12 @@ import com.leo.entity.SysUser;
  */
 public interface ISysUserService {
 
+/**
+  * @discription    用户登录
+  * @author sunlei
+  * @createTime 2017/8/29 10:24
+  */
+    SysUser logining(String username,String passwd);
     /**
       * @discription    通过登录名和密码查询用户基本信息
       * @author sunlei
