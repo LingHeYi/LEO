@@ -8,13 +8,18 @@
   <name>leo-root Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
-
   <properties>
     <struts.version>2.3.28</struts.version>
     <spring.version>3.0.5.RELEASE</spring.version>
     <mybatis.version>3.2.6</mybatis.version>
     <log4j.version>1.2.17</log4j.version>
-   </properties>
+
+    <!-- 本地调试tomcat7 上下文路径 -->
+    <project.contextPath>${project.artifactId}</project.contextPath>
+    <!-- 本地调试tomcat7 端口 -->
+    <project.port>8089</project.port>
+    <project.warSourceDirectory>${basedir}/webapp</project.warSourceDirectory>
+  </properties>
 
   <dependencies>
     <!-- 配置 redis  start-->
@@ -39,7 +44,6 @@
       <artifactId>jedis</artifactId>
       <version>2.9.0</version>
     </dependency>
-
     <!-- 配置 redis  end-->
 
     <!-- struts包 -->
@@ -52,12 +56,6 @@
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-spring-plugin</artifactId>
       <version>${struts.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>${spring.version}</version>
     </dependency>
 
     <!-- spring核心包 -->
@@ -82,13 +80,11 @@
       <artifactId>spring-tx</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
@@ -99,30 +95,23 @@
       <artifactId>spring-aop</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
     </dependency>
 
-
+    <!-- Freemaker -->
     <dependency>
-
       <groupId>org.freemarker</groupId>
-
       <artifactId>freemarker</artifactId>
-
       <version>2.3.26-incubating</version>
-
     </dependency>
-
 
     <!-- mybatis核心包 -->
     <dependency>
@@ -138,11 +127,12 @@
       <version>1.2.2</version>
     </dependency>
 
-    <!-- java ee 包 -->
+    <!-- javaee 包 -->
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
       <version>7.0</version>
+      <scope>provided</scope>
     </dependency>
 
     <!-- Mysql数据库链接jar包 -->
@@ -156,12 +146,14 @@
       <artifactId>commons-dbcp</artifactId>
       <version>1.2.2</version>
     </dependency>
-    <!-- 映入JSON -->
+
+    <!-- 引入JSON -->
     <dependency>
       <groupId>org.codehaus.jackson</groupId>
       <artifactId>jackson-mapper-asl</artifactId>
       <version>1.9.13</version>
     </dependency>
+
     <!-- 上传组件包 -->
     <dependency>
       <groupId>commons-fileupload</groupId>
@@ -180,7 +172,6 @@
     </dependency>
 
     <!-- aop注解  -->
-
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjrt</artifactId>
@@ -205,5 +196,31 @@
   </dependencies>
   <build>
     <finalName>leo-root</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <contextReloadable>false</contextReloadable>
+          <warSourceDirectory>${project.warSourceDirectory}</warSourceDirectory>
+          <uriEncoding>UTF-8</uriEncoding>
+          <path>/${project.contextPath}</path>
+          <port>${project.port}</port>
+          <url>${deploy.url}</url>
+          <username>admin</username>
+          <password>1</password>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

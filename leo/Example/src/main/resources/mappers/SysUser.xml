@@ -4,12 +4,8 @@
     <package name="admin" namespace="/admin" extends="struts-default">
         <action name="sysUser_*" class="com.leo.action.SysUserAction" method="{1}">
             <result name="success" type="freemarker">/WEB-INF/page/sysUser/sysUserBase.ftl</result>
-            <result name="error">/error.jsp</result>
-            <result name="list" type="freemarker">/WEB-INF/page/tempUser/tempUserList.jsp</result>
-            <result name="input">/error.jsp</result>
         </action>
         <action name="login_*" class="com.leo.action.LoginAction" method="{1}">
-            <result name="error">/error.jsp</result>
             <result name="goLogin" type="freemarker">/WEB-INF/page/amazeUI/login.html</result>
             <result name="index" type="freemarker">/WEB-INF/page/amazeUI/landing.html</result>
         </action>

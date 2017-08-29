@@ -19,8 +19,9 @@ public class LoginAction  extends ActionSupport{
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         String pathUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-                + request.getContextPath() + "/";
+                + request.getContextPath();
         ActionContext.getContext().getSession().put("ctx",pathUrl);
+        ;
         /*HttpServletRequest request = ServletActionContext.getRequest();
         String loginName = request.getParameter("loginName");
         String password = request.getParameter("password");

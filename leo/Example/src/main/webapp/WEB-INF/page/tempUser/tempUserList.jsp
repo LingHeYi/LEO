@@ -8,7 +8,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="../common/_jstl.jsp"></jsp:include>
 <html>
 <head>
     <title>Title</title>
